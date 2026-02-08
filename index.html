@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,6 +7,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
+      // Polyfill for process.env to prevent blank screen crashes in production
+      window.process = {
+        env: {
+          API_KEY: "" // This will be populated by your hosting provider (like Netlify)
+        }
+      };
+
       tailwind.config = {
         theme: {
           extend: {
@@ -74,5 +80,7 @@
 </head>
   <body class="bg-cream text-sage-dark antialiased">
     <div id="root"></div>
+    <!-- The following script ensures index.tsx is loaded as an ES module -->
+    <script type="module" src="index.tsx"></script>
   </body>
 </html>

@@ -1,43 +1,37 @@
-# Nomad Gear | Premium Camping Rentals
+# Nomad Gear | Deployment Guide
 
-Nomad Gear is a state-of-the-art camping equipment rental platform. It combines a high-end retail experience with advanced AI integrations to help adventurers prepare for the wilderness with confidence.
+Follow these steps to take this website live so you can share the link with your friends!
 
-## 🚀 Features
+## 🏁 Step 1: Prepare your files
+1. Download all the files from this project.
+2. Put them into a single folder on your computer.
 
-### 1. AI Trip Planner
-Describe your upcoming adventure in natural language, and our AI (Gemini 3 Flash) will recommend the perfect rental package. It considers group size, duration, and environmental conditions to ensure you have exactly what you need.
+## 🐙 Step 2: Upload to GitHub
+1. Create a free account on [GitHub.com](https://github.com).
+2. Create a "New Repository" named `nomad-gear`.
+3. Upload all your files to this repository.
 
-### 2. Live AI Support
-Need immediate advice? Our Live Support feature uses the Gemini Live API to provide a real-time, voice-activated conversation with a "Wilderness Expert." You can ask about gear maintenance, safety protocols, or packing lists.
+## 🚀 Step 3: Connect to Netlify (Recommended)
+Netlify is the easiest way to get a public link.
+1. Create a free account on [Netlify.com](https://netlify.com).
+2. Click **"Add new site"** > **"Import an existing project"**.
+3. Connect your GitHub account and select your `nomad-gear` repository.
+4. **Important**: Under "Build settings", you don't need a build command because this app uses ESM. Just set the "Publish directory" to `.` (the root).
 
-### 3. Campground Finder
-Integrated with Google Maps grounding, this tool allows you to search for the best campsites near your current location or a specific destination. It provides real-time data and direct navigation links.
+## 🔑 Step 4: Add your API Key (Fixes Blank Screen/Errors)
+Your AI features need a key to work on the real web.
+1. In your Netlify dashboard, go to **Site Settings** > **Environment variables**.
+2. Add a new variable:
+   - **Key**: `API_KEY`
+   - **Value**: (Paste your Gemini API Key here)
+3. Go to **Deploys** and click **"Trigger deploy"** > **"Clear cache and deploy site"**.
 
-### 4. Sustainable Adventure
-We promote a circular economy. Renting instead of buying reduces manufacturing waste. We use eco-friendly cleaning processes and donate 1% of all revenue to forest preservation.
-
-## 🛠 Technical Stack
-
-- **Frontend**: React (v19)
-- **Styling**: Tailwind CSS
-- **Icons**: Lucide React
-- **AI Engine**: Google Gemini API (@google/genai)
-  - `gemini-3-flash-preview`: For text-based planning.
-  - `gemini-2.5-flash`: For Maps/Search grounded discovery.
-  - `gemini-2.5-flash-native-audio-preview-12-2025`: For real-time voice support.
-
-## 📦 Getting Started
-
-1. **Environment Variables**: The application requires a valid `API_KEY` for Google GenAI services. This is typically injected via the hosting environment.
-2. **Permissions**: The app will request access to your **Microphone** (for Live Support) and **Location** (for the Campground Finder).
-
-## 🌲 Navigation
-- **Home**: Hero section with quick links to start renting.
-- **How it Works**: A step-by-step guide to the rental process.
-- **Gear**: Detailed view of our curated rental packages.
-- **AI Planner**: The intelligent recommendation engine.
-- **Explorer**: Maps-grounded campsite search.
-- **Destinations**: A gallery of curated adventure spots.
+## 🌲 Sharing
+Once finished, Netlify will give you a link like `https://awesome-nomad-gear.netlify.app`. You can share this link with anyone! They will see your beautiful website without seeing the Google AI Studio code editor.
 
 ---
-*Created for adventurers, by adventurers.*
+### Technical Support
+If the screen is white:
+- Open your browser's "Inspect" tool (F12) and look at the "Console" tab.
+- It will tell you exactly which file failed to load. 
+- Ensure your `index.html` has `<script type="module" src="index.tsx"></script>` at the bottom.
