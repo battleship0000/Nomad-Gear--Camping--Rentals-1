@@ -1,0 +1,8 @@
+{
+  "name": "Nomad Gear - Premium Camping Rentals",
+  "description": "A high-end React web application for renting premium camping gear, featuring an AI-powered trip planning assistant and real-time voice support.",
+  "requestFramePermissions": [
+    "microphone",
+    "geolocation"
+  ]
+}
